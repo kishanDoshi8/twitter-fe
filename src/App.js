@@ -10,6 +10,7 @@ import { faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { faBell, faHashtag, faHome, faInbox, faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Nav from './components/Navbar/Nav';
+import Tweet from './components/home/Tweet';
 
 function App() {
 
@@ -41,6 +42,14 @@ function App() {
                         <Navbar tabs={tabs} icons={icons} selected={selected} setSelected={setSelected}>
                             <Nav isSelected ={selected === 'home'} >
                                 <HomeScreen />
+                            </Nav>
+                        </Navbar>
+                    </Route>
+
+                    <Route path="/tweet/">
+                        <Navbar tabs={tabs} icons={icons} selected={selected} setSelected={setSelected}>
+                            <Nav isSelected ={selected === 'home'} >
+                                <Tweet />
                             </Nav>
                         </Navbar>
                     </Route>

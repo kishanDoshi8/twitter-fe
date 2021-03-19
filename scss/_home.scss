@@ -73,49 +73,73 @@
 
     .tweet-desc {
         width: 100%;
-        .tweet-username {
-            color: rgba($light-color, 0.6);
-            cursor: pointer;
+    }
+}
 
-            &:hover a {
-                border-bottom: solid 1px $light-color;
-            }
+.tweet-username {
+    color: rgba($light-color, 0.6);
+    cursor: pointer;
+
+    &:hover a {
+        border-bottom: solid 1px $light-color;
+    }
+}
+
+.tweet-options {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: rgba($light-color, 0.7);
+    
+    .tweet-link {
+        padding: 0.5rem;
+        border-radius: 50%;
+
+        &.comment:hover {
+            color: rgba($primary-color, 1);
+            background-color: rgba($primary-color, 0.1);
         }
-        
-        .tweet-options {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            color: rgba($light-color, 0.7);
-            
-            .tweet-link {
-                padding: 0.5rem;
-                border-radius: 50%;
 
-                &.comment:hover {
-                    color: rgba($primary-color, 1);
-                    background-color: rgba($primary-color, 0.1);
-                }
-
-                &.retweet:hover {
-                    color: rgba($retweet-color, 1);
-                    background-color: rgba($retweet-color, 0.1);
-                }
-
-                &.like.liked {
-                    color: rgba($like-color, 1);
-                }
-
-                &.like:hover {
-                    color: rgba($like-color, 1);
-                    background-color: rgba($like-color, 0.1);
-                }
-
-                &.share:hover {
-                    color: rgba($primary-color, 1);
-                    background-color: rgba($primary-color, 0.1);
-                }
-            }
+        &.retweet:hover {
+            color: rgba($retweet-color, 1);
+            background-color: rgba($retweet-color, 0.1);
         }
+
+        &.like.liked {
+            color: rgba($like-color, 1);
+        }
+
+        &.like:hover {
+            color: rgba($like-color, 1);
+            background-color: rgba($like-color, 0.1);
+        }
+
+        &.share:hover {
+            color: rgba($primary-color, 1);
+            background-color: rgba($primary-color, 0.1);
+        }
+    }
+}
+
+.thread {
+    .profile {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .tweet-username {
+        color: rgba($light-color, 0.6);
+        cursor: pointer;
+
+        &:hover a {
+            border-bottom: solid 1px $light-color;
+        }
+    }
+
+    .time-date {
+        color: rgba($light-color, 0.6);
+        border-bottom: solid 0.1px rgba($primary-color, 0.3);
     }
 }

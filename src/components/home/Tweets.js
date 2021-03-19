@@ -47,12 +47,13 @@ const Tweets = () => {
     }
 
     const tweetClickHandler = (e, tweetId) => {
-        console.log('Click on tweet', tweetId);
         e.stopPropagation();
+        console.log('Click on tweet', tweetId);
+        window.location.pathname = '/tweet/' + tweetId;
     }
 
     const profileClickHandler = (e, userId) => {
-        console.log('Click on profile', userId); 
+        console.log('Click on profile', userId);
         e.stopPropagation();
     }
 

@@ -35,6 +35,11 @@ a {
     text-decoration: none;
 }
 
+h1, h2, h3 {
+  margin: 0;
+  padding: 0;
+}
+
 .login, .register {
   display: flex;
   flex-direction: column;
@@ -91,5 +96,6 @@ a {
     width: 700px;
     min-width: 400px;
     border-left: solid 0.1px rgba($light-color, 0.3);
+    border-right: solid 0.1px rgba($light-color, 0.3);
   }
 }

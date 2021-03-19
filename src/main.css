@@ -13,6 +13,9 @@ hr {
   margin: 0 auto;
   padding: 0 40px; }
 
+.bb {
+  border-bottom: solid 0.1px rgba(255, 255, 255, 0.3); }
+
 .bg-primary {
   background-color: #1da1f2; }
 
@@ -35,7 +38,7 @@ hr {
   color: #df4759; }
 
 .text-sm {
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: 400; }
 
 .text-md {
@@ -114,6 +117,9 @@ hr {
 .sticky-top {
   position: sticky;
   top: 0px; }
+
+.pointer {
+  cursor: pointer; }
 
 .nav-title {
   margin: 0px;
@@ -409,33 +415,51 @@ hr {
   cursor: pointer; }
   .tweet .tweet-desc {
     width: 100%; }
-    .tweet .tweet-desc .tweet-username {
-      color: rgba(255, 255, 255, 0.6);
-      cursor: pointer; }
-      .tweet .tweet-desc .tweet-username:hover a {
-        border-bottom: solid 1px #fff; }
-    .tweet .tweet-desc .tweet-options {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      color: rgba(255, 255, 255, 0.7); }
-      .tweet .tweet-desc .tweet-options .tweet-link {
-        padding: 0.5rem;
-        border-radius: 50%; }
-        .tweet .tweet-desc .tweet-options .tweet-link.comment:hover {
-          color: #1da1f2;
-          background-color: rgba(29, 161, 242, 0.1); }
-        .tweet .tweet-desc .tweet-options .tweet-link.retweet:hover {
-          color: #17bf63;
-          background-color: rgba(23, 191, 99, 0.1); }
-        .tweet .tweet-desc .tweet-options .tweet-link.like.liked {
-          color: #e0245e; }
-        .tweet .tweet-desc .tweet-options .tweet-link.like:hover {
-          color: #e0245e;
-          background-color: rgba(224, 36, 94, 0.1); }
-        .tweet .tweet-desc .tweet-options .tweet-link.share:hover {
-          color: #1da1f2;
-          background-color: rgba(29, 161, 242, 0.1); }
+
+.tweet-username {
+  color: rgba(255, 255, 255, 0.6);
+  cursor: pointer; }
+  .tweet-username:hover a {
+    border-bottom: solid 1px #fff; }
+
+.tweet-options {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color: rgba(255, 255, 255, 0.7); }
+  .tweet-options .tweet-link {
+    padding: 0.5rem;
+    border-radius: 50%; }
+    .tweet-options .tweet-link.comment:hover {
+      color: #1da1f2;
+      background-color: rgba(29, 161, 242, 0.1); }
+    .tweet-options .tweet-link.retweet:hover {
+      color: #17bf63;
+      background-color: rgba(23, 191, 99, 0.1); }
+    .tweet-options .tweet-link.like.liked {
+      color: #e0245e; }
+    .tweet-options .tweet-link.like:hover {
+      color: #e0245e;
+      background-color: rgba(224, 36, 94, 0.1); }
+    .tweet-options .tweet-link.share:hover {
+      color: #1da1f2;
+      background-color: rgba(29, 161, 242, 0.1); }
+
+.thread .profile {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center; }
+
+.thread .tweet-username {
+  color: rgba(255, 255, 255, 0.6);
+  cursor: pointer; }
+  .thread .tweet-username:hover a {
+    border-bottom: solid 1px #fff; }
+
+.thread .time-date {
+  color: rgba(255, 255, 255, 0.6);
+  border-bottom: solid 0.1px rgba(29, 161, 242, 0.3); }
 
 body, html {
   padding: 0;
@@ -463,6 +487,10 @@ li {
 a {
   cursor: pointer;
   text-decoration: none; }
+
+h1, h2, h3 {
+  margin: 0;
+  padding: 0; }
 
 .login, .register {
   display: flex;
@@ -503,4 +531,5 @@ a {
   .nav-area .nav-component {
     width: 700px;
     min-width: 400px;
-    border-left: solid 0.1px rgba(255, 255, 255, 0.3); }
+    border-left: solid 0.1px rgba(255, 255, 255, 0.3);
+    border-right: solid 0.1px rgba(255, 255, 255, 0.3); }
