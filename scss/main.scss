@@ -1,0 +1,95 @@
+@import 'config';
+@import 'utilities';
+@import 'home';
+
+body, html {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-family: $ff;
+    background-color: $dark-color;
+
+    color: $light-color;
+}
+
+img {
+    width: 100%;
+    display: block;
+    height: auto;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+    list-style: none;
+    margin: 0.3rem;
+    padding: 0.2rem;
+}
+
+a {
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.login, .register {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding:4rem 0;
+}
+
+.register {
+  padding: 2rem !important;
+}
+
+.nav-area {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+
+  .nav {
+    min-width: 75px;
+    width: 175px;
+    display: flex;
+    justify-content: flex-end;
+    height: 100vh;
+
+    .nav-items {
+      position: relative;
+      top: 15px;
+      display: flex;
+      flex-direction: column;
+      justify-content: end;
+      align-items: center;
+      gap: 10px;
+      margin-right: 0.5rem;
+
+      .nav-item {
+        
+        .nav-link {
+          padding: 1rem;
+          border-radius: 50%;
+
+          &.active{
+            color: $primary-color;
+          }
+
+          &:hover {
+            color: $primary-color;
+            background-color: rgba($primary-color, 0.1);
+          }
+        }
+      }
+    }
+  }
+
+  .nav-component {
+    width: 700px;
+    min-width: 400px;
+    border-left: solid 0.1px rgba($light-color, 0.3);
+  }
+}

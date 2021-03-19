@@ -1,0 +1,260 @@
+hr {
+    height: 1rem;
+    background-color: rgba($light-color, 0.1);
+    outline: none;
+    border: none;
+    border-top: solid 0.1px rgba($light-color, 0.3);
+    border-bottom: solid 0.1px rgba($light-color, 0.3);
+}
+
+.container {
+    position: relative;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.bg-primary {
+    background-color: $primary-color;
+}
+
+.bg-dark {
+    background-color: $dark-color;
+}
+
+.bg-light {
+    background-color: $light-color;
+}
+
+.bg-danger {
+    background-color: $danger-color;
+}
+
+.text-primary {
+    color: $primary-color;
+}
+
+.text-dark {
+    color: $dark-color;
+}
+
+.text-danger {
+    color: $danger-color;
+}
+
+.text-sm {
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.text-md {
+    font-size: 1.6rem;
+    font-weight: 400;
+}
+
+.text-lg {
+    font-size: 3rem;
+}
+
+.text-xl {
+    font-size: 3.5rem;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.flex {
+    display: flex;
+    height: 100%;
+    justify-content: center;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.flex-row {
+    flex-direction: row;
+}
+
+.grid {
+    display: grid;
+}
+
+.form {
+    display: flex;
+    padding: 1rem;
+    flex-direction: column;
+    gap: 20px;
+
+  input {
+        padding: 10px 20px;
+        border-radius: 1rem;
+        width: 20rem;
+        height: 2rem;
+
+        &:hover {
+            outline: none;
+        }
+  }
+}
+
+.btn {
+    outline: none;
+    border: none;
+    border-radius: 2rem;
+    cursor: pointer;
+    transition: 0.3s;
+    
+    &:hover {
+        transform: scale(1.02);
+    }
+}
+
+.btn-primary {
+    background-color: $primary-color;
+    color: $light-color;
+}
+
+.btn-dark {
+    background-color: $dark-color;
+    color: $light-color;
+}
+
+.btn-light {
+    background-color: $light-color;
+    color: $dark-color;
+}
+
+.btn-lg {
+    font-size: 1.7rem;
+    padding: 15px 30px;
+}
+
+.btn-md {
+    font-size: 1.2rem;
+    padding: 10px 20px;
+}
+
+.btn-sm {
+    font-size: 1rem;
+    padding: 5px 10px;
+}
+
+.sticky-top {
+    position: sticky;
+    top: 0px;
+}
+
+.nav-title {
+    margin: 0px;
+    min-height: 50px;
+    background-color: $dark-color;
+    border-bottom: solid 0.1px rgba($light-color, 0.3);
+    display: flex;
+    align-items: center;
+    z-index: 1000;
+}
+
+@for $i from 1 through 5 {
+    $size: 0.5rem;
+    .m-#{$i} {
+        margin: ($size * $i) !important;
+    }
+}
+
+@for $i from 1 through 5 {
+    $size: 0.5rem;
+    .mt-#{$i} {
+        margin-top: ($size * $i) !important;
+    }
+}
+
+@for $i from 1 through 5 {
+    $size: 0.5rem;
+    .mr-#{$i} {
+        margin-right: ($size * $i) !important;
+    }
+}
+
+@for $i from 1 through 5 {
+    $size: 0.5rem;
+    .mb-#{$i} {
+        margin-bottom: ($size * $i) !important;
+    }
+}
+
+@for $i from 1 through 5 {
+    $size: 0.5rem;
+    .ml-#{$i} {
+        margin-left: ($size * $i) !important;
+    }
+}
+
+@for $i from 1 through 5 {
+    $size: 0.5rem;
+    .mx-#{$i} {
+        margin-left: ($size * $i) !important;
+        margin-right: ($size * $i) !important;
+    }
+}
+
+@for $i from 1 through 5 {
+    $size: 0.5rem;
+    .my-#{$i} {
+        margin-top: ($size * $i) !important;
+        margin-bottom: ($size * $i) !important;
+    }
+}
+
+@for $i from 1 through 5 {
+    $size: 0.5rem;
+    .p-#{$i} {
+        padding: ($size * $i) !important;
+    }
+}
+
+@for $i from 1 through 5 {
+    $size: 0.5rem;
+    .pt-#{$i} {
+        padding-top: ($size * $i) !important;
+    }
+}
+
+@for $i from 1 through 5 {
+    $size: 0.5rem;
+    .pr-#{$i} {
+        padding-right: ($size * $i) !important;
+    }
+}
+
+@for $i from 1 through 5 {
+    $size: 0.5rem;
+    .pb-#{$i} {
+        padding-bottom: ($size * $i) !important;
+    }
+}
+
+@for $i from 1 through 5 {
+    $size: 0.5rem;
+    .pl-#{$i} {
+        padding-left: ($size * $i) !important;
+    }
+}
+
+@for $i from 1 through 5 {
+    $size: 0.5rem;
+    .px-#{$i} {
+        padding-left: ($size * $i) !important;
+        padding-right: ($size * $i) !important;
+    }
+}
+
+@for $i from 1 through 5 {
+    $size: 0.5rem;
+    .py-#{$i} {
+        padding-top: ($size * $i) !important;
+        padding-bottom: ($size * $i) !important;
+    }
+}
