@@ -1,0 +1,51 @@
+// Large devices -> Laptops and desktops
+@include mediaLg {
+    
+}
+
+// Medium devices -> small desktops and laptops
+@include mediaMd {
+    .nav-item-title {
+        visibility: hidden;
+    }
+
+    .nav-area {
+
+        .nav {
+            width: 175px;
+            justify-content: flex-end;
+
+            .nav-items {
+                li.nav-item {
+                    border-radius: 50%;
+                    padding: 1rem !important;
+
+                    .nav-link {
+                        position: relative;
+                        padding: 0;
+
+                        .nav-item-title {
+                            position: absolute;
+                            top: 50px;
+                            left: 0;
+                            transform: translateX(-50%);
+                            font-size: 1rem;
+                            padding: 0.25rem 0.5rem;
+                            background-color: rgba($primary-color, 0.1);
+                            border-radius: 4rem;
+                        }
+
+                    }
+
+                    &:hover .nav-item-title {
+                        transition-delay: 0.7s;
+                        visibility: visible;
+                    }
+
+                }
+            }
+        }
+
+        
+    }
+}

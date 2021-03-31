@@ -48,12 +48,10 @@ const Tweets = () => {
 
     const tweetClickHandler = (e, tweetId) => {
         e.stopPropagation();
-        console.log('Click on tweet', tweetId);
         window.location.pathname = '/tweet/' + tweetId;
     }
 
     const profileClickHandler = (e, userId) => {
-        console.log('Click on profile', userId);
         e.stopPropagation();
     }
 
@@ -71,7 +69,7 @@ const Tweets = () => {
                         </div>
                         <div className="tweet-body mt-1"> {tweet.tweetBody} </div>
 
-                        <div className="tweet-options mt-2">
+                        <div className="tweet-options mt-2 pr-2">
                             <div className="tweet-option ">
                                 <a className="tweet-link comment">
                                     <FontAwesomeIcon icon={faComment} />

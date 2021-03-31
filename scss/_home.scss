@@ -29,6 +29,26 @@
         }
     }
 
+    textarea {
+        background: none;
+        outline: none;
+        border: none;
+        overflow: hidden;
+        resize: none;
+        width: 100%;
+        color: $light-color;
+        font-size: 1.2rem;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        line-height: 1.5rem;
+
+        &::placeholder {
+            color: rgba($light-color, 0.7);
+            font-size: 1.2rem;
+            margin: auto 0;
+        }
+    }
+
     .tweet-btns {
         display: flex;
         justify-content: space-between;
@@ -73,6 +93,11 @@
 
     .tweet-desc {
         width: 100%;
+
+        .tweet-body {
+            white-space: pre-wrap;
+            line-height: 1.5rem;
+        }
     }
 }
 
@@ -127,6 +152,11 @@
         display: flex;
         flex-direction: row;
         align-items: center;
+    }
+
+    .tweet-body {
+        white-space: pre-wrap;
+        line-height: 2.3rem;
     }
 
     .tweet-username {

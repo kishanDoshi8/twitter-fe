@@ -10,3 +10,15 @@ $like-color: #e0245e;
 
 $ff: 'Nunito', sans-serif;
 
+
+@mixin mediaLg {
+    @media screen and (min-width: 1281px) {
+        @content;
+    }
+}
+
+@mixin mediaMd {
+    @media screen and (max-width: 1280px) {
+        @content;
+    }
+}

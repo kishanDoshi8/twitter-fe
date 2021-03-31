@@ -9,9 +9,9 @@ hr {
 
 .container {
   position: relative;
-  max-width: 1100px;
+  max-width: 1280px;
   margin: 0 auto;
-  padding: 0 40px; }
+  padding: 0 4px; }
 
 .bb {
   border-bottom: solid 0.1px rgba(255, 255, 255, 0.3); }
@@ -129,6 +129,12 @@ hr {
   display: flex;
   align-items: center;
   z-index: 1000; }
+
+.m-auto {
+  margin: auto; }
+
+.p-auto {
+  padding: auto; }
 
 .m-1 {
   margin: 0.5rem !important; }
@@ -382,6 +388,22 @@ hr {
       color: rgba(255, 255, 255, 0.7);
       font-size: 1.2rem;
       margin: auto 0; }
+  .new-tweet textarea {
+    background: none;
+    outline: none;
+    border: none;
+    overflow: hidden;
+    resize: none;
+    width: 100%;
+    color: #fff;
+    font-size: 1.2rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    line-height: 1.5rem; }
+    .new-tweet textarea::placeholder {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 1.2rem;
+      margin: auto 0; }
   .new-tweet .tweet-btns {
     display: flex;
     justify-content: space-between;
@@ -415,6 +437,9 @@ hr {
   cursor: pointer; }
   .tweet .tweet-desc {
     width: 100%; }
+    .tweet .tweet-desc .tweet-body {
+      white-space: pre-wrap;
+      line-height: 1.5rem; }
 
 .tweet-username {
   color: rgba(255, 255, 255, 0.6);
@@ -451,6 +476,10 @@ hr {
   flex-direction: row;
   align-items: center; }
 
+.thread .tweet-body {
+  white-space: pre-wrap;
+  line-height: 2.3rem; }
+
 .thread .tweet-username {
   color: rgba(255, 255, 255, 0.6);
   cursor: pointer; }
@@ -460,6 +489,31 @@ hr {
 .thread .time-date {
   color: rgba(255, 255, 255, 0.6);
   border-bottom: solid 0.1px rgba(29, 161, 242, 0.3); }
+
+@media screen and (max-width: 1280px) {
+  .nav-item-title {
+    visibility: hidden; }
+  .nav-area .nav {
+    width: 175px;
+    justify-content: flex-end; }
+    .nav-area .nav .nav-items li.nav-item {
+      border-radius: 50%;
+      padding: 1rem !important; }
+      .nav-area .nav .nav-items li.nav-item .nav-link {
+        position: relative;
+        padding: 0; }
+        .nav-area .nav .nav-items li.nav-item .nav-link .nav-item-title {
+          position: absolute;
+          top: 50px;
+          left: 0;
+          transform: translateX(-50%);
+          font-size: 1rem;
+          padding: 0.25rem 0.5rem;
+          background-color: rgba(29, 161, 242, 0.1);
+          border-radius: 4rem; }
+      .nav-area .nav .nav-items li.nav-item:hover .nav-item-title {
+        transition-delay: 0.7s;
+        visibility: visible; } }
 
 body, html {
   padding: 0;
@@ -507,29 +561,29 @@ h1, h2, h3 {
   flex-direction: row; }
   .nav-area .nav {
     min-width: 75px;
-    width: 175px;
     display: flex;
-    justify-content: flex-end;
     height: 100vh; }
     .nav-area .nav .nav-items {
       position: relative;
-      top: 15px;
+      margin-top: 1rem;
       display: flex;
       flex-direction: column;
-      justify-content: end;
-      align-items: center;
       gap: 10px;
       margin-right: 0.5rem; }
-      .nav-area .nav .nav-items .nav-item .nav-link {
-        padding: 1rem;
-        border-radius: 50%; }
-        .nav-area .nav .nav-items .nav-item .nav-link.active {
-          color: #1da1f2; }
-        .nav-area .nav .nav-items .nav-item .nav-link:hover {
+      .nav-area .nav .nav-items .nav-item {
+        border-radius: 4rem;
+        padding: 0.5rem 3rem 0.5rem 0;
+        cursor: pointer;
+        font-size: 1.4rem; }
+        .nav-area .nav .nav-items .nav-item .nav-link {
+          padding: 1rem;
+          border-radius: 4rem; }
+          .nav-area .nav .nav-items .nav-item .nav-link.active {
+            color: #1da1f2; }
+        .nav-area .nav .nav-items .nav-item:hover {
           color: #1da1f2;
           background-color: rgba(29, 161, 242, 0.1); }
   .nav-area .nav-component {
     width: 700px;
-    min-width: 400px;
     border-left: solid 0.1px rgba(255, 255, 255, 0.3);
     border-right: solid 0.1px rgba(255, 255, 255, 0.3); }

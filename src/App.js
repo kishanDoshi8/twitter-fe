@@ -5,26 +5,22 @@ import { Provider } from 'react-redux';
 import store from './store';
 import Register from './components/login/Register';
 import Navbar from './components/Navbar/Navbar';
-import { useState } from 'react';
-import { faTwitter } from '@fortawesome/free-brands-svg-icons';
+import { useState, useEffect } from 'react';
 import { faBell, faHashtag, faHome, faInbox, faUser } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Nav from './components/Navbar/Nav';
 import Tweet from './components/home/Tweet';
 
 function App() {
+    const [selected, setSelected] = useState(window.location.pathname.split('/')[1]);
 
-    const [selected, setSelected] = useState('home');
+    const tabs = ['Home', 'Explore', 'Notifications', 'Messages', 'Profile'];
 
-    const tabs = ['home', 'explore', 'notifications', 'messages', 'profile'];
-
-    // const icons = new Set(["faHome", "faHashTag", "faBell", "faInbox", "faUser"])
     const icons = new Map();
-    icons.set("home", faHome);
-    icons.set("explore", faHashtag);
-    icons.set("notifications", faBell);
-    icons.set("messages", faInbox);
-    icons.set("profile", faUser);
+    icons.set("Home", faHome);
+    icons.set("Explore", faHashtag);
+    icons.set("Notifications", faBell);
+    icons.set("Messages", faInbox);
+    icons.set("Profile", faUser);
 
   return (
     <div className="App">
@@ -48,7 +44,7 @@ function App() {
 
                     <Route path="/tweet/">
                         <Navbar tabs={tabs} icons={icons} selected={selected} setSelected={setSelected}>
-                            <Nav isSelected ={selected === 'home'} >
+                            <Nav isSelected ={selected === 'tweet'} >
                                 <Tweet />
                             </Nav>
                         </Navbar>
@@ -57,7 +53,31 @@ function App() {
                     <Route exact path="/explore">
                         <Navbar tabs={tabs} icons={icons} selected={selected} setSelected={setSelected}>
                             <Nav isSelected ={selected === 'explore'} >
-                                <HomeScreen />
+                                Explore Y'all
+                            </Nav>
+                        </Navbar>
+                    </Route>
+
+                    <Route exact path="/notifications">
+                        <Navbar tabs={tabs} icons={icons} selected={selected} setSelected={setSelected}>
+                            <Nav isSelected ={selected === 'notifications'} >
+                                ding ding
+                            </Nav>
+                        </Navbar>
+                    </Route>
+
+                    <Route exact path="/messages">
+                        <Navbar tabs={tabs} icons={icons} selected={selected} setSelected={setSelected}>
+                            <Nav isSelected ={selected === 'messages'} >
+                                Ssup
+                            </Nav>
+                        </Navbar>
+                    </Route>
+
+                    <Route exact path="/profile">
+                        <Navbar tabs={tabs} icons={icons} selected={selected} setSelected={setSelected}>
+                            <Nav isSelected ={selected === 'profile'} >
+                                Looking good!!
                             </Nav>
                         </Navbar>
                     </Route>
