@@ -1,4 +1,4 @@
-import { LOADING_TWEETS, CREATE_TWEET, GET_TWEETS, UPDATE_TWEET, DELETE_TWEET, FAIL_GET_TWEETS, FAIL_CREATE_TWEET, FAIL_UPDATE_TWEET, LOADING_TWEET_ID, GET_TWEET_ID, FAIL_GET_TWEET_ID } from './types';
+import { LOADING_TWEETS, CREATE_TWEET, GET_TWEETS, UPDATE_TWEET, DELETE_TWEET, FAIL_GET_TWEETS, FAIL_CREATE_TWEET, FAIL_UPDATE_TWEET, LOADING_TWEET_ID, GET_TWEET_ID, FAIL_GET_TWEET_ID, ERROR_COMMENT } from './types';
 import axios from 'axios';
 import { tokenConfig } from './authActions';
 import { setErrors } from './errorActions';
@@ -69,5 +69,19 @@ export const unlikeTweet = id => (dispatch, getState) => {
         })
         .catch(err => {
             dispatch(setErrors(err.response?.status, err.response?.data.msg, FAIL_UPDATE_TWEET));
+        })
+}
+
+export const postComment = comment => (dispatch, getState) => {
+    const id = comment.id;
+    axios.post('/api/tweets/comments/' + id, comment, tokenConfig(getState))
+        .then(res => {
+            dispatch({
+                type: UPDATE_TWEET,
+                payload: res.data.tweet,
+            })
+        })
+        .catch(err => {
+            dispatch(setErrors(err.response?.status, err.response?.data.msg, ERROR_COMMENT));
         })
 }

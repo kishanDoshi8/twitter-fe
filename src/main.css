@@ -375,19 +375,6 @@ hr {
     top: 1rem; }
   .new-tweet form {
     width: 100%; }
-  .new-tweet input {
-    background: none;
-    outline: none;
-    border: none;
-    width: 100%;
-    color: #fff;
-    padding: 1.5rem 0;
-    font-size: 1.2rem;
-    margin-bottom: 1rem; }
-    .new-tweet input::placeholder {
-      color: rgba(255, 255, 255, 0.7);
-      font-size: 1.2rem;
-      margin: auto 0; }
   .new-tweet textarea {
     background: none;
     outline: none;
@@ -423,8 +410,10 @@ hr {
           background-color: rgba(29, 161, 242, 0.1); }
 
 .profile-pic {
-  height: 48px;
-  width: 48px;
+  min-height: 48px;
+  min-width: 48px;
+  max-height: 48px;
+  max-width: 48px;
   background-color: #1da1f2;
   border-radius: 50%; }
 
@@ -450,7 +439,7 @@ hr {
 .tweet-options {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   color: rgba(255, 255, 255, 0.7); }
   .tweet-options .tweet-link {
     padding: 0.5rem;
@@ -489,6 +478,84 @@ hr {
 .thread .time-date {
   color: rgba(255, 255, 255, 0.6);
   border-bottom: solid 0.1px rgba(29, 161, 242, 0.3); }
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.3);
+  z-index: 1000; }
+
+.comment-modal {
+  width: 600px;
+  position: relative;
+  top: 3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #000;
+  border-radius: 20px; }
+  .comment-modal-header {
+    padding: .5rem 1.5rem;
+    border-bottom: solid 0.1px rgba(255, 255, 255, 0.3); }
+    .comment-modal-header .close-btn {
+      font-size: 2rem;
+      color: #1da1f2;
+      cursor: pointer; }
+  .comment-modal-body {
+    padding: 1.5rem;
+    display: flex;
+    gap: 1rem; }
+    .comment-modal-body a {
+      color: #1da1f2; }
+    .comment-modal-body .comment-tweet {
+      position: relative; }
+      .comment-modal-body .comment-tweet::before {
+        content: "";
+        position: absolute;
+        top: 3.5rem;
+        left: -2.5rem;
+        width: 1px;
+        height: 80%;
+        background-color: rgba(255, 255, 255, 0.3);
+        z-index: 1; }
+    .comment-modal-body .tweet-body {
+      margin: 0.5rem 0rem;
+      white-space: pre-wrap;
+      line-height: 1.5rem; }
+    .comment-modal-body .tweet-info {
+      margin: 3rem 0 0 0;
+      color: rgba(255, 255, 255, 0.7); }
+  .comment-modal-compose {
+    padding: 0 1.5rem;
+    display: flex;
+    gap: 1rem; }
+    .comment-modal-compose textarea {
+      background: none;
+      outline: none;
+      border: none;
+      overflow: hidden;
+      resize: none;
+      width: 100%;
+      color: #fff;
+      font-size: 1.2rem;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      line-height: 1.5rem; }
+      .comment-modal-compose textarea::placeholder {
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 1.2rem;
+        margin: auto 0; }
+  .comment-modal-footer .comment-tweet-btns {
+    padding: 0 2rem 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; }
+    .comment-modal-footer .comment-tweet-btns .comment-tweet-options {
+      display: flex;
+      gap: 0.5rem;
+      color: #1da1f2; }
 
 @media screen and (max-width: 1280px) {
   .nav-item-title {

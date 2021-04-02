@@ -5,10 +5,14 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getTweets, likeTweet, unlikeTweet } from '../../actions/tweetActions';
 import moment from 'moment';
+import useModal from '../customHooks/useModal';
+import CommentModal from './CommentModal';
 
 const Tweets = () => {
 
     const [liked, setLiked] = useState(new Set());
+    const [showComment, setShowComment] = useState('');
+    const {isShowing, toggle} = useModal();
 
     const dispatch = useDispatch();
     const { tweets } = useSelector(state => state.tweet);
@@ -55,6 +59,12 @@ const Tweets = () => {
         e.stopPropagation();
     }
 
+    const comment = (e, id) => {
+        e.stopPropagation();
+        setShowComment(id);
+        toggle();
+    }
+
     return (
         <div>
             {tweets.map(tweet => (
@@ -71,10 +81,11 @@ const Tweets = () => {
 
                         <div className="tweet-options mt-2 pr-2">
                             <div className="tweet-option ">
-                                <a className="tweet-link comment">
+                                <a className="tweet-link comment" onClick={(e) => comment(e, tweet._id)}>
                                     <FontAwesomeIcon icon={faComment} />
                                 </a>
                                 <span className="ml-1"> {tweet.comments.length} </span>
+                                <CommentModal isShowing={tweet._id === showComment ? isShowing : false} hide={toggle} tweet={tweet} />
                             </div>
                             <div className="tweet-option">
                                 <a className="tweet-link retweet">

@@ -6,6 +6,8 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getTweetById, likeTweet, unlikeTweet } from '../../actions/tweetActions';
 import { loadUser } from '../../actions/authActions';
+import useModal from '../customHooks/useModal';
+import CommentModal from './CommentModal';
 
 const Tweet = () => {
 
@@ -13,6 +15,10 @@ const Tweet = () => {
     const tweetState = useSelector(state => state.tweet.tweet);
     const { user } = useSelector(state => state.auth);
     const dispatch = useDispatch();
+
+    // const [liked, setLiked] = useState(new Set());
+    const [showComment, setShowComment] = useState('');
+    const {isShowing, toggle} = useModal();
 
     useEffect(() => {
         const pathname = window.location.pathname;
@@ -23,7 +29,6 @@ const Tweet = () => {
 
     useEffect(() => {
         setTweet(tweetState);
-        console.log('Loaded');
     }, [tweetState, user]);
 
     const likeUnlike = (e, id) => {
@@ -41,6 +46,15 @@ const Tweet = () => {
 
     const tweetUnlink = id => {
         dispatch(unlikeTweet(id));
+    }
+
+    const tweetClickHandler = (e, tweetId) => {
+        e.stopPropagation();
+        window.location.pathname = '/tweet/' + tweetId;
+    }
+
+    const profileClickHandler = (e, userId) => {
+        e.stopPropagation();
     }
 
     return (
@@ -85,12 +99,13 @@ const Tweet = () => {
                             </div>
                         </div>
 
-                        <div className="tweet-options p-2 px-3 bb">
+                        <div className="tweet-options py-2 bb">
                             <div className="tweet-option ">
-                                <a className="tweet-link comment">
+                                <a className="tweet-link comment" onClick={toggle}>
                                     <FontAwesomeIcon icon={faComment} />
                                 </a>
                                 <span className="ml-1"> {tweet.comments?.length} </span>
+                                <CommentModal isShowing={isShowing} hide={toggle} tweet={tweet} />
                             </div>
                             <div className="tweet-option">
                                 <a className="tweet-link retweet">
@@ -115,6 +130,10 @@ const Tweet = () => {
                                 </a>
                             </div>
                         </div>
+
+                        {tweet.comments?.map(comment => (
+                            <div key={comment._id}>{comment.commentBody}</div>
+                        ))}
                     </div>
                 </>
             ) : ('Loading...')}

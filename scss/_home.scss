@@ -12,22 +12,22 @@
         width: 100%;
     }
 
-    input {
-        background: none;
-        outline: none;
-        border: none;
-        width: 100%;
-        color: $light-color;
-        padding: 1.5rem 0;
-        font-size: 1.2rem;
-        margin-bottom: 1rem;
+    // input {
+    //     background: none;
+    //     outline: none;
+    //     border: none;
+    //     width: 100%;
+    //     color: $light-color;
+    //     padding: 1.5rem 0;
+    //     font-size: 1.2rem;
+    //     margin-bottom: 1rem;
 
-        &::placeholder {
-            color: rgba($light-color, 0.7);
-            font-size: 1.2rem;
-            margin: auto 0;
-        }
-    }
+    //     &::placeholder {
+    //         color: rgba($light-color, 0.7);
+    //         font-size: 1.2rem;
+    //         margin: auto 0;
+    //     }
+    // }
 
     textarea {
         background: none;
@@ -77,8 +77,10 @@
 }
 
 .profile-pic {
-    height: 48px;
-    width: 48px;
+    min-height: 48px;
+    min-width: 48px;
+    max-height: 48px;
+    max-width: 48px;
     background-color: $primary-color;
     border-radius: 50%;
 }
@@ -113,7 +115,7 @@
 .tweet-options {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     color: rgba($light-color, 0.7);
     
     .tweet-link {
@@ -171,5 +173,115 @@
     .time-date {
         color: rgba($light-color, 0.6);
         border-bottom: solid 0.1px rgba($primary-color, 0.3);
+    }
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba($color: #fff, $alpha: .3);
+    z-index: 1000;
+}
+
+.comment-modal {
+    width: 600px;
+    position: relative;
+    top: 3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: $dark-color;
+    border-radius: 20px;
+
+    &-header {
+        padding: .5rem 1.5rem;
+        border-bottom: solid .1px rgba($light-color, 0.3);
+
+        .close-btn {
+            font-size: 2rem;
+            color: $primary-color;
+            cursor: pointer;
+        }
+    }
+
+    &-body {
+        padding: 1.5rem;
+        display: flex;
+        gap: 1rem;
+
+        a {
+            color: $primary-color;
+        }
+
+        .comment-tweet {
+            position: relative;
+            
+            &::before {
+                content: "";
+                position: absolute;
+                top: 3.5rem;
+                left: -2.5rem;
+                width: 1px;
+                height: 80%;
+                background-color: rgba($color: #fff, $alpha: .3);
+                z-index: 1;
+            }
+        }
+
+        .tweet-body {
+            margin: 0.5rem 0rem;
+            white-space: pre-wrap;
+            line-height: 1.5rem;
+        }
+
+        .tweet-info {
+            margin: 3rem 0 0 0;
+            color: rgba($color: #fff, $alpha: .7);
+        }
+    }
+
+    &-compose {
+        padding: 0 1.5rem;
+        display: flex;
+        gap: 1rem;
+
+        textarea {
+            background: none;
+            outline: none;
+            border: none;
+            overflow: hidden;
+            resize: none;
+            width: 100%;
+            color: $light-color;
+            font-size: 1.2rem;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            line-height: 1.5rem;
+
+            &::placeholder {
+                color: rgba($light-color, 0.7);
+                font-size: 1.2rem;
+                margin: auto 0;
+            }
+        }
+    }
+
+    &-footer {
+
+        .comment-tweet-btns {
+            padding: 0 2rem 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .comment-tweet-options {
+                display: flex;
+                gap: 0.5rem;
+                color: $primary-color;
+            }
+        }
+        
     }
 }
