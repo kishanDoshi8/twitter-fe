@@ -8,6 +8,7 @@ import { getTweetById, likeTweet, unlikeTweet } from '../../actions/tweetActions
 import { loadUser } from '../../actions/authActions';
 import useModal from '../customHooks/useModal';
 import CommentModal from './CommentModal';
+import Comments from './Comments';
 
 const Tweet = () => {
 
@@ -16,8 +17,6 @@ const Tweet = () => {
     const { user } = useSelector(state => state.auth);
     const dispatch = useDispatch();
 
-    // const [liked, setLiked] = useState(new Set());
-    const [showComment, setShowComment] = useState('');
     const {isShowing, toggle} = useModal();
 
     useEffect(() => {
@@ -99,42 +98,46 @@ const Tweet = () => {
                             </div>
                         </div>
 
-                        <div className="tweet-options py-2 bb">
-                            <div className="tweet-option ">
-                                <a className="tweet-link comment" onClick={toggle}>
-                                    <FontAwesomeIcon icon={faComment} />
-                                </a>
-                                <span className="ml-1"> {tweet.comments?.length} </span>
-                                <CommentModal isShowing={isShowing} hide={toggle} tweet={tweet} />
-                            </div>
-                            <div className="tweet-option">
-                                <a className="tweet-link retweet">
-                                    <FontAwesomeIcon icon={faRetweet} />
-                                </a>
-                                <span className="ml-1"> {tweet.retweets?.length} </span>
-                            </div>
-                            <div className="tweet-option">
-                                <a className={tweet.likes?.indexOf(user._id) >= 0 ? "tweet-link like liked" : "tweet-link like"} 
-                                    onClick={(e) => likeUnlike(e, tweet._id)}>
-                                        {tweet.likes?.indexOf(user._id) >= 0 ? (
-                                            <FontAwesomeIcon icon={faHeartSolid} />
-                                            ) : (
-                                            <FontAwesomeIcon icon={faHeartRegular} />
-                                        )}
-                                </a>
-                                <span className="ml-1"> {tweet.likes?.length} </span>
-                            </div>
-                            <div className="tweet-option">
-                                <a className="tweet-link share">
-                                    <FontAwesomeIcon icon={faShare} />
-                                </a>
-                            </div>
-                        </div>
 
-                        {tweet.comments?.map(comment => (
-                            <div key={comment._id}>{comment.commentBody}</div>
-                        ))}
                     </div>
+
+                    <div className="tweet-options pb-2 bb">
+                        <div className="tweet-option ">
+                            <a className="tweet-link comment" onClick={toggle}>
+                                <FontAwesomeIcon icon={faComment} />
+                            </a>
+                            <span className="ml-1"> {tweet.comments?.length ? tweet.comments?.length : null} </span>
+                            <CommentModal isShowing={isShowing} hide={toggle} tweet={tweet} />
+                        </div>
+                        <div className="tweet-option">
+                            <a className="tweet-link retweet">
+                                <FontAwesomeIcon icon={faRetweet} />
+                            </a>
+                            <span className="ml-1"> {tweet.retweets?.length ? tweet.retweets?.length : null} </span>
+                        </div>
+                        <div className="tweet-option">
+                            <a className={tweet.likes?.indexOf(user._id) >= 0 ? "tweet-link like liked" : "tweet-link like"} 
+                                onClick={(e) => likeUnlike(e, tweet._id)}>
+                                    {tweet.likes?.indexOf(user._id) >= 0 ? (
+                                        <FontAwesomeIcon icon={faHeartSolid} />
+                                        ) : (
+                                        <FontAwesomeIcon icon={faHeartRegular} />
+                                    )}
+                            </a>
+                            <span className="ml-1"> {tweet.likes?.length ? tweet.likes?.length : null} </span>
+                        </div>
+                        <div className="tweet-option">
+                            <a className="tweet-link share">
+                                <FontAwesomeIcon icon={faShare} />
+                            </a>
+                        </div>
+                    </div>
+
+                    {tweet.comments?.map(comment => (
+                        <div key={comment._id} className="bb p-2 comments-wrapper">
+                            <Comments comment={comment} user={user} />
+                        </div>
+                    ))}
                 </>
             ) : ('Loading...')}
         </div>

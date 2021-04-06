@@ -66,7 +66,7 @@ const Tweets = () => {
     }
 
     return (
-        <div>
+        <div className="tweets">
             {tweets.map(tweet => (
                 <div key={tweet._id} className="tweet" onClick={(e) => tweetClickHandler(e, tweet._id)}>
                     <div className="profile-pic"></div>
@@ -84,14 +84,14 @@ const Tweets = () => {
                                 <a className="tweet-link comment" onClick={(e) => comment(e, tweet._id)}>
                                     <FontAwesomeIcon icon={faComment} />
                                 </a>
-                                <span className="ml-1"> {tweet.comments.length} </span>
+                                <span className="ml-1"> {tweet.comments?.length ? tweet.comments?.length : null} </span>
                                 <CommentModal isShowing={tweet._id === showComment ? isShowing : false} hide={toggle} tweet={tweet} />
                             </div>
                             <div className="tweet-option">
                                 <a className="tweet-link retweet">
                                     <FontAwesomeIcon icon={faRetweet} />
                                 </a>
-                                <span className="ml-1"> {tweet.retweets.length} </span>
+                                <span className="ml-1"> {tweet.retweets?.length ? tweet.retweets?.length : null} </span>
                             </div>
                             <div className="tweet-option">
                                 <a className={liked.has(tweet._id) ? "tweet-link like liked" : "tweet-link like"} 
@@ -102,7 +102,7 @@ const Tweets = () => {
                                             <FontAwesomeIcon icon={faHeartRegular} />
                                         )}
                                 </a>
-                                <span className="ml-1"> {tweet.likes.length} </span>
+                                <span className="ml-1"> {tweet.likes?.length ? tweet.likes?.length : null} </span>
                             </div>
                             <div className="tweet-option">
                                 <a className="tweet-link share">

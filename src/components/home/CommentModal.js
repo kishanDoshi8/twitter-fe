@@ -44,11 +44,16 @@ const CommentModal = ({ isShowing, hide, tweet }) => {
         }
     }
 
+    const modalOverlayClick = (e) => {
+        e.stopPropagation();
+        hide();
+    }
+
     return (
         ReactDOM.createPortal(
             <React.Fragment>
-                <div className="modal-overlay" onClick={(e) => e.stopPropagation()}>
-                    <div className="comment-modal">
+                <div className="modal-overlay" onClick={(e) => modalOverlayClick(e)}>
+                    <div className="comment-modal" onClick={e => e.stopPropagation()}>
                         <div className="comment-modal-header">
                             <div className="close-btn" onClick={hide}> &times; </div>
                         </div>
@@ -58,7 +63,11 @@ const CommentModal = ({ isShowing, hide, tweet }) => {
 
                             <div className="comment-tweet">
                                 <div className="tweet-username"> @{tweet.userName} </div>
-                                <div className="tweet-body"> {tweet.tweetBody} </div>
+                                {tweet.tweetBody ? (
+                                    <div className="tweet-body"> {tweet.tweetBody} </div>
+                                ) : (
+                                    <div className="tweet-body" > {tweet.commentBody} </div>
+                                )}
                                 
                                 <div className="tweet-info">
                                     Replying to <a> @{tweet.userName}</a>

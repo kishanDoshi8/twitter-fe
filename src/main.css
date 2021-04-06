@@ -1,4 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap");
+@keyframes fly-in {
+  0% {
+    opacity: 0;
+    transform: translateY(-1.5rem); }
+  25% {
+    opacity: 1;
+    transform: translateY(-0.5rem); }
+  100% {
+    opacity: 1;
+    transform: translateX(0); } }
+
 hr {
   height: 1rem;
   background-color: rgba(255, 255, 255, 0.1);
@@ -417,6 +428,46 @@ hr {
   background-color: #1da1f2;
   border-radius: 50%; }
 
+.tweets .tweet:nth-child(1) {
+  animation-name: fly-in;
+  animation-duration: 0.4s; }
+
+.tweets .tweet:nth-child(2) {
+  animation-name: fly-in;
+  animation-duration: 0.8s; }
+
+.tweets .tweet:nth-child(3) {
+  animation-name: fly-in;
+  animation-duration: 1.2s; }
+
+.tweets .tweet:nth-child(4) {
+  animation-name: fly-in;
+  animation-duration: 1.6s; }
+
+.tweets .tweet:nth-child(5) {
+  animation-name: fly-in;
+  animation-duration: 2s; }
+
+.tweets .tweet:nth-child(6) {
+  animation-name: fly-in;
+  animation-duration: 2.4s; }
+
+.tweets .tweet:nth-child(7) {
+  animation-name: fly-in;
+  animation-duration: 2.8s; }
+
+.tweets .tweet:nth-child(8) {
+  animation-name: fly-in;
+  animation-duration: 3.2s; }
+
+.tweets .tweet:nth-child(9) {
+  animation-name: fly-in;
+  animation-duration: 3.6s; }
+
+.tweets .tweet:nth-child(10) {
+  animation-name: fly-in;
+  animation-duration: 4s; }
+
 .tweet {
   position: relative;
   display: flex;
@@ -424,6 +475,8 @@ hr {
   padding: 1rem;
   border-bottom: solid 0.1px rgba(255, 255, 255, 0.3);
   cursor: pointer; }
+  .tweet:hover {
+    background-color: rgba(255, 255, 255, 0.03); }
   .tweet .tweet-desc {
     width: 100%; }
     .tweet .tweet-desc .tweet-body {
@@ -556,6 +609,17 @@ hr {
       display: flex;
       gap: 0.5rem;
       color: #1da1f2; }
+
+.comments-wrapper:hover {
+  background-color: rgba(255, 255, 255, 0.03); }
+
+.comments {
+  display: flex;
+  gap: 1rem; }
+  .comments-comment {
+    width: 100%; }
+    .comments-comment .tweet-options {
+      justify-content: space-between; }
 
 @media screen and (max-width: 1280px) {
   .nav-item-title {

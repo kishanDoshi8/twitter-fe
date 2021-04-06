@@ -10,8 +10,8 @@ const NewTweet = () => {
 
     const dispatch = useDispatch();
 
-    const sendTweet = () => {
-        // e.preventDefault();
+    const sendTweet = (e) => {
+        e.preventDefault();
         if(!tweet.trim()) return;
         dispatch(createTweet({ tweetBody: tweet }));
 
@@ -27,7 +27,7 @@ const NewTweet = () => {
 
     const onKeyUpHandler = e => {
         if (e.ctrlKey && e.keyCode == 13) {
-            sendTweet();
+            sendTweet(e);
         }
     }
 
@@ -37,7 +37,6 @@ const NewTweet = () => {
             <form onSubmit={sendTweet}>
                 <span className="tweet-input" >
                     <textarea maxLength="280" rows="1" name="tweet" value={tweet} autoComplete="off" placeholder="What's happening?" onKeyUp={e => onKeyUpHandler(e)} onChange={e => handleTextarea(e)} ></textarea>
-                    {/* <input type="textarea" name="tweet" value={tweet} onChange={e => setTweet(e.target.value)} placeholder="What's happening?" autoComplete="off"/> */}
                 </span>
                 <div className="tweet-btns">
                     <ul className="tweet-options">

@@ -12,23 +12,6 @@
         width: 100%;
     }
 
-    // input {
-    //     background: none;
-    //     outline: none;
-    //     border: none;
-    //     width: 100%;
-    //     color: $light-color;
-    //     padding: 1.5rem 0;
-    //     font-size: 1.2rem;
-    //     margin-bottom: 1rem;
-
-    //     &::placeholder {
-    //         color: rgba($light-color, 0.7);
-    //         font-size: 1.2rem;
-    //         margin: auto 0;
-    //     }
-    // }
-
     textarea {
         background: none;
         outline: none;
@@ -85,6 +68,16 @@
     border-radius: 50%;
 }
 
+.tweets {
+    @for $i from 1 through 10 {
+        & .tweet:nth-child(#{$i}) {
+            animation-name: fly-in;
+            // animation-duration: 0.3s;
+            animation-duration: #{$i * 0.4}s;
+        }
+    }
+}
+
 .tweet {
     position: relative;
     display: flex;
@@ -92,6 +85,10 @@
     padding: 1rem;
     border-bottom: solid 0.1px rgba($light-color, 0.3);
     cursor: pointer;
+
+    &:hover {
+        background-color: rgba($color: #fff, $alpha: .03);
+    }
 
     .tweet-desc {
         width: 100%;
@@ -283,5 +280,26 @@
             }
         }
         
+    }
+}
+
+.comments-wrapper {
+
+    &:hover {
+        background-color: rgba($color: #fff, $alpha: .03);
+    }
+}
+
+.comments {
+    display: flex;
+    gap: 1rem;
+
+    &-comment {
+        width: 100%;
+
+
+        .tweet-options {
+            justify-content: space-between;
+        }
     }
 }
